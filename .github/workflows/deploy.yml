@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies, build site, and upload artifact
         uses: withastro/action@v4
         with:
-          package-manager: pnpm
+          package-manager: pnpm@9.14.4
 
       - name: Deploy to GitHub Pages
         id: deployment
