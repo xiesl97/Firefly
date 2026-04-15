@@ -45,14 +45,19 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 	// 关于及其子菜单
 	links.push({
 		name: "关于",
-		url: "/content/",
+		url: "/about/",
 		icon: "material-symbols:info",
 		children: [
-			// 根据配置决定是否添加赞助，在siteConfig关闭pages.sponsor时导航栏不显示赞助
-			...(siteConfig.pages.sponsor ? [LinkPreset.Sponsor] : []),
-
-			// 关于页面
-			LinkPreset.About,
+			{
+				name: "关于我",
+				url: "/about-me/",
+				icon: "material-symbols:person",
+			},
+			{
+				name: "关于本站",
+				url: "/about/",
+				icon: "material-symbols:info",
+			},
 		],
 	});
 
@@ -65,22 +70,9 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		// 子菜单
 		children: [
 			{
-				name: "GitHub",
-				url: "https://github.com/CuteLeaf/Firefly",
-				external: true,
-				icon: "fa7-brands:github",
-			},
-			{
-				name: "Gitee",
-				url: "https://gitee.com/CuteLeaf/Firefly",
-				external: true,
-				icon: "fa7-brands:gitee",
-			},
-			{
-				name: "QQ交流群",
-				url: "https://qm.qq.com/q/ZGsFa8qX2G",
-				external: true,
-				icon: "fa7-brands:qq",
+				name: "RSS",
+				url: "/rss/",
+				icon: "fa7-solid:rss",
 			},
 		],
 	});

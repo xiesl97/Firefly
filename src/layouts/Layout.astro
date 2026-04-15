@@ -72,15 +72,17 @@ let pageTitle: string;
 if (title) {
 	pageTitle = `${title} - ${siteConfig.title}`;
 } else {
-	pageTitle = siteConfig.subtitle
-		? `${siteConfig.title} - ${siteConfig.subtitle}`
-		: siteConfig.title;
+	pageTitle = siteConfig.title;
 }
 
 let ogImageUrl: string | undefined;
 if (siteConfig.generateOgImages && postSlug) {
 	ogImageUrl = new URL(`/og/${postSlug}.png`, Astro.site).toString();
 }
+
+const rssFeedUrl = Astro.site
+	? new URL(url("/rss.xml"), Astro.site).toString()
+	: url("/rss.xml");
 
 const favicons: Favicon[] =
 	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
@@ -506,7 +508,7 @@ const siteLang = lang.replace("_", "-");
       rel="alternate"
       type="application/rss+xml"
       title={profileConfig.name}
-      href={`${Astro.site}rss.xml`}
+      href={rssFeedUrl}
     />
 
     <!-- Font Manager -->

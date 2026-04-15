@@ -102,6 +102,10 @@ if (isLocalSrcLogo) {
                 ]}>
                                     {siteConfig.navbar.logo?.type === "icon" ? (
                                         <Icon name={siteConfig.navbar.logo.value || "material-symbols:home-pin-outline"} class="text-[1.75rem] mb-1 mr-2" />
+                                    ) : siteConfig.navbar.logo?.type === "emoji" ? (
+                                        <span class="text-[1.65rem] leading-none mb-0.5 mr-2" aria-hidden="true">
+                                            {siteConfig.navbar.logo.value || "🌠"}
+                                        </span>
                                     ) : siteConfig.navbar.logo?.type === "image" && logoImg ? (
                                         <Picture
                                             src={logoImg}

@@ -37,8 +37,8 @@ import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site_url,
-	
-	base: "/",
+
+	base: "/Firefly",
 	trailingSlash: "always",
 
 	// 图像优化配置
@@ -90,6 +90,7 @@ export default defineConfig({
 				"fa7-regular": ["*"],
 				"fa7-solid": ["*"],
 				"simple-icons": ["*"],
+				"streamline-plump-color": ["*"],
 				mdi: ["*"],
 			},
 		}),

@@ -50,10 +50,14 @@ export async function GET(context: APIContext) {
 			}),
 		});
 	}
+	const siteUrl = context.site
+		? new URL(import.meta.env.BASE_URL, context.site).toString()
+		: "https://firefly.cuteleaf.cn";
+
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.subtitle || "No description",
-		site: context.site ?? "https://firefly.cuteleaf.cn",
+		site: siteUrl,
 		customData: `<templateTheme>Firefly</templateTheme>
 		<templateThemeVersion>${pkg.version}</templateThemeVersion>
 		<templateThemeUrl>https://github.com/CuteLeaf/Firefly</templateThemeUrl>
