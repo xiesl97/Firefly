@@ -9,7 +9,9 @@ import { i18n } from "@/i18n/translation";
 
 const posts = await getSortedPosts();
 const recentPosts = posts.slice(0, 6);
-const rssFeedUrl = Astro.site ? new URL(url("/rss.xml"), Astro.site).toString() : url("/rss.xml");
+const rssFeedUrl = Astro.site
+	? new URL(url("/rss.xml"), Astro.site).toString()
+	: url("/rss.xml");
 ---
 
 <MainGridLayout title={i18n(I18nKey.rss)} description={i18n(I18nKey.rssDescription)}>
